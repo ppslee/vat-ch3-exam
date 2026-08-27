@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>객관식 6번</title><link rel="stylesheet" href="mcq.css"></head>
+<body><div class="container">
+  <div class="header">
+    <a href="../index.html" class="home-btn">🏠</a>
+    <span class="badge">객관식 6 / 10</span>
+    <span class="level">⚡⚡ 상중</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+  <h2>【문 6】 재화의 공급시기 (장기할부·중간지급조건부)</h2>
+  <p class="question">부가가치세법상 재화의 공급시기에 관한 설명으로 가장 <strong>옳지 않은 것</strong>은?</p>
+  <div class="choices">
+    <label class="choice"><input type="radio" name="q" value="1"><span>① 장기할부·완성도기준지급조건부·중간지급조건부 판매 및 재화의 계속적 공급의 경우 '대가의 각 부분을 받기로 한 때'를 공급시기로 본다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="2"><span>② 중간지급조건부 판매란 계약금 지급일의 다음 날부터 인도일까지의 기간이 6개월 이상이고, 그 기간 동안 대가를 3회 이상 분할하여 받는 경우를 말한다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="3"><span>③ 중간지급조건부 요건을 충족하지 못한 경우(기간 5개월)에는 약정일과 관계없이 '재화가 인도되는 때'를 공급시기로 본다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="4"><span>④ 장기할부판매 계약 후 사업자가 폐업하는 경우, 폐업일 이후에 도래하는 분할 대가의 공급시기는 실제 약정일이 도래하는 때로 본다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="5"><span>⑤ 위탁가공무역방식 수출을 위해 원재료를 국외 가공업자에게 무환으로 반출하는 것은 재화의 공급으로 보지 아니한다.</span></label>
+  </div>
+  <button class="btn-check" onclick="check()">✅ 정답 확인</button>
+  <div id="result" class="result"></div>
+  <div class="nav">
+    <button class="btn-nav" onclick="location.href='q05.html'">← 이전</button>
+    <button class="btn-next" onclick="location.href='q07.html'">다음 문제 →</button>
+  </div>
+</div>
+<script>
+const A=4, E=`<strong>정답: ④번</strong><br><br>
+④ [오답] 장기할부판매 중 사업자가 폐업하는 경우, 폐업일 이후에 도래하는 모든 분할 대가의 공급시기는 <u>약정일이 아닌 '폐업일'로 앞당겨집니다.</u> 실제 약정일이 도래할 때로 본다는 설명이 틀렸습니다.<br><br>
+① ② ③ ⑤ 모두 옳은 설명입니다.`;
+function check(){const s=document.querySelector('input[name="q"]:checked');const d=document.getElementById('result');if(!s){alert('선택지를 선택하세요!');return;}d.style.display='block';d.className='result '+(+s.value===A?'correct':'wrong');d.innerHTML=(+s.value===A?'🎉 정답!<br><br>':'❌ 오답!<br><br>')+E;}
+</script></div></body></html>
