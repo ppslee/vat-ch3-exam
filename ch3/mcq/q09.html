@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>객관식 9번</title><link rel="stylesheet" href="mcq.css"></head>
+<body><div class="container">
+  <div class="header">
+    <a href="../index.html" class="home-btn">🏠</a>
+    <span class="badge">객관식 9 / 10</span>
+    <span class="level">⚡⚡ 상</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div>
+  <h2>【문 9】 선발급 세금계산서 특례</h2>
+  <p class="question">부가가치세법상 공급시기 도래 전에 발급하는 선발급 세금계산서에 대한 설명으로 가장 <strong>옳지 않은 것</strong>은?</p>
+  <div class="choices">
+    <label class="choice"><input type="radio" name="q" value="1"><span>① 공급시기 도래 전에 세금계산서를 발급하고 발급일로부터 7일 이내에 대가를 지급받는 경우, 적법한 선발급 세금계산서로 인정된다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="2"><span>② 7일 초과~30일 이내에 대금을 받는 경우라도, 청구시기·지급시기가 약정서에 기재되고 세금계산서에 '청구' 표시가 있다면 선발급 세금계산서로 인정된다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="3"><span>③ 세금계산서 발급일이 속하는 과세기간(예정신고기간 포함) 내에 공급시기가 도래하고 대금 지급이 확인되는 경우에도 정상적인 세금계산서로 본다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="4"><span>④ 장기할부판매 및 계속적 공급의 경우에는 대금 수령 여부와 관계없이 선발급 세금계산서 특례가 무조건 적용되어 발급 시점을 공급시기로 본다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="5"><span>⑤ 선하증권이 발행되는 외국항행용역의 경우, 공급시기가 선하증권 발행일로부터 180일 이내에 도래하는 것에 한하여 선발급 세금계산서로 인정된다.</span></label>
+  </div>
+  <button class="btn-check" onclick="check()">✅ 정답 확인</button>
+  <div id="result" class="result"></div>
+  <div class="nav">
+    <button class="btn-nav" onclick="location.href='q08.html'">← 이전</button>
+    <button class="btn-next" onclick="location.href='q10.html'">다음 문제 →</button>
+  </div>
+</div>
+<script>
+const A=5, E=`<strong>정답: ⑤번</strong><br><br>
+⑤ [오답] 선하증권이 발행되는 외국항행용역의 선발급 인정 기간은 <u>180일이 아니라 '선하증권 발행일로부터 공급시기가 속하는 과세기간 내'</u>입니다. 180일이라는 기간은 존재하지 않으며, 세금계산서 발급일이 속하는 과세기간(예정신고기간 포함) 이내에 공급시기가 도래해야 합니다.<br><br>
+① ② ③ ④ 모두 옳은 설명입니다.`;
+function check(){const s=document.querySelector('input[name="q"]:checked');const d=document.getElementById('result');if(!s){alert('선택지를 선택하세요!');return;}d.style.display='block';d.className='result '+(+s.value===A?'correct':'wrong');d.innerHTML=(+s.value===A?'🎉 정답!<br><br>':'❌ 오답!<br><br>')+E;}
+</script></div></body></html>
