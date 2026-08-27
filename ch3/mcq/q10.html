@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>객관식 10번</title><link rel="stylesheet" href="mcq.css"></head>
+<body><div class="container">
+  <div class="header">
+    <a href="../index.html" class="home-btn">🏠</a>
+    <span class="badge">객관식 10 / 10</span>
+    <span class="level">⚡⚡ 상</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+  <h2>【문 10】 재화·용역의 공급장소</h2>
+  <p class="question">부가가치세법상 재화 및 용역의 공급장소에 관한 설명으로 가장 <strong>옳지 않은 것</strong>은?</p>
+  <div class="choices">
+    <label class="choice"><input type="radio" name="q" value="1"><span>① 재화의 공급장소는 이동이 필요한 경우 '이동이 시작되는 장소', 이동이 필요하지 않은 경우 '공급 시에 재화가 있는 장소'로 한다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="2"><span>② 용역의 공급장소는 원칙적으로 '역무가 제공되거나 재화·시설물·권리가 사용되는 장소'이다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="3"><span>③ 국내 사업자가 국외에서 건설용역(해외건설용역)을 제공하는 경우, 역무 제공 장소가 국외이므로 부가가치세법상 과세대상 거래에서 제외된다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="4"><span>④ 국내 사업자가 국외 부동산을 임대하고 대가를 받는 경우, 부동산 소재지가 국외이므로 대한민국 부가가치세법상 과세대상 공급장소에 해당하지 아니한다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="5"><span>⑤ 비거주자·외국법인의 경우 국내에 '업무를 총괄하는 장소'가 있는 경우에 한하여 국내 공급으로 볼 수 있는 여지가 존재한다.</span></label>
+  </div>
+  <button class="btn-check" onclick="check()">✅ 정답 확인</button>
+  <div id="result" class="result"></div>
+  <div class="nav">
+    <button class="btn-nav" onclick="location.href='q09.html'">← 이전</button>
+    <button class="btn-next" onclick="location.href='../index.html'">🏠 메인으로</button>
+  </div>
+</div>
+<script>
+const A=3, E=`<strong>정답: ③번</strong><br><br>
+③ [오답] 국내 사업자가 해외건설용역을 제공하는 경우, 역무 제공 장소는 국외이지만 <u>사업자의 업무를 총괄하는 장소가 국내에 있으므로 공급장소를 국내로 의제합니다.</u> 따라서 과세대상 거래에 해당하며, 영세율(0%)을 적용합니다. '과세대상에서 제외된다'는 설명이 틀렸습니다.<br><br>
+① ② 재화·용역 공급장소 원칙 → 옳음 &nbsp;④ 국외 부동산 임대 → 비과세(공급장소 국외) → 옳음 &nbsp;⑤ 비거주자·외국법인 국내 업무 총괄 장소 → 옳음`;
+function check(){const s=document.querySelector('input[name="q"]:checked');const d=document.getElementById('result');if(!s){alert('선택지를 선택하세요!');return;}d.style.display='block';d.className='result '+(+s.value===A?'correct':'wrong');d.innerHTML=(+s.value===A?'🎉 정답!<br><br>':'❌ 오답!<br><br>')+E;}
+</script></div></body></html>
