@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>주관식 3번</title><link rel="stylesheet" href="saq.css"></head>
+<body><div class="container">
+
+  <div class="header">
+    <a href="../index.html" class="home-btn">🏠</a>
+    <span class="badge">주관식 3 / 4</span>
+    <span class="score">💯 25점</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+
+  <h2>【문제 3】 용역의 공급시기 및 장기 용역의 월할계산</h2>
+  <p class="intro">부가가치세법상 용역의 공급시기 규정과 관련하여 다음 각 자료를 보고 물음에 답하시오.</p>
+
+  <div class="data-box">
+    <h3>📋 자료 1 — 임대보증금 간주임대료</h3>
+    <p>(주)태평은 상업용 건물을 임대하고 임대보증금 <strong>5억 원</strong>을 수령하였다.<br>
+    (2025년 제1기 예정신고기간: 2025.01.01. ~ 2025.03.31.)</p>
+  </div>
+
+  <div class="data-box">
+    <h3>📋 자료 2 — 임대료 선불 수령</h3>
+    <p>(주)태평은 2025년 3월 1일에 임차인과 임대차계약을 맺고,<br>
+    1년 치 임대료 <strong>36,000,000원</strong>(월 3,000,000원)을 당일 일시 선불로 수령하였다.<br>
+    임대기간: 2025.03.01. ~ 2026.02.28. (12개월)</p>
+  </div>
+
+  <div class="data-box">
+    <h3>📋 자료 3 — BOT 방식 준용 용역</h3>
+    <p>(주)태평은 BOT(Build-Operate-Transfer) 방식 준용 용역을 제공한다.<br>
+    · 용역 제공 시작일: 2025년 1월 1일 (36개월간 운영권)<br>
+    · 총 시설 설치원가: <strong>360,000,000원</strong><br>
+    · 매 기수마다 현금 대가: <strong>10,000,000원</strong> 별도 수령</p>
+  </div>
+
+  <div class="req-box">
+    <h3>📌 요구사항</h3>
+    <ol>
+      <li>자료 1의 간주임대료의 2025년 제1기 예정신고 시 공급시기를 쓰시오. (5점)</li>
+      <li>자료 2의 선불 임대료와 관련하여 2025년 제1기 예정·확정신고기간의 공급시기와 과세표준을 계산식과 함께 제시하시오. (10점)</li>
+      <li>자료 3의 BOT 방식 용역에 대해 2025년 제1기(1/1~6/30) 과세표준을 계산식과 함께 제시하시오. (10점)</li>
+    </ol>
+  </div>
+
+  <p class="tip">👇 각 자료를 클릭하면 정답·해설이 펼쳐집니다</p>
+
+  <!-- 자료 1 답 -->
+  <div class="sub-item">
+    <div class="sub-header" onclick="toggle('c1','k1')">
+      <span class="sub-title">자료 1 — 간주임대료 공급시기</span>
+      <span class="sub-score">5점</span>
+      <span class="toggle-icon" id="k1">▼</span>
+    </div>
+    <div class="sub-content" id="c1">
+      <span class="answer-label">✅ 공급시기: 2025년 3월 31일</span>
+      <div class="reason">
+간주임대료는 무형의 용역 제공 대가로서<br>
+<strong>예정신고기간 또는 과세기간의 종료일</strong>을 공급시기로 규정하고 있습니다.<br>
+→ 2025년 제1기 예정신고기간 종료일 = <strong>2025.03.31.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- 자료 2 답 -->
+  <div class="sub-item">
+    <div class="sub-header" onclick="toggle('c2','k2')">
+      <span class="sub-title">자료 2 — 선불 임대료 공급시기 및 과세표준</span>
+      <span class="sub-score">10점</span>
+      <span class="toggle-icon" id="k2">▼</span>
+    </div>
+    <div class="sub-content" id="c2">
+      <span class="answer-label">✅ 공급시기: 각 과세기간(예정신고기간 포함)의 종료일</span>
+      <div class="formula">
+【월할계산 원칙: 초월 산입, 말월 불산입】<br>
+총 임대기간: 12개월 (2025.03.01. ~ 2026.02.28.)<br>
+일시 수령액: 36,000,000원 (월 3,000,000원)<br>
+<br>
+① 2025년 제1기 예정신고기간 (1/1~3/31)<br>
+   공급시기: 2025.03.31.<br>
+   해당 월: 3월 (1개월)<br>
+   과세표준: 36,000,000 × 1/12 = <strong>3,000,000원</strong><br>
+<br>
+② 2025년 제1기 확정신고기간 (4/1~6/30)<br>
+   공급시기: 2025.06.30.<br>
+   해당 월: 4월, 5월, 6월 (3개월)<br>
+   과세표준: 36,000,000 × 3/12 = <strong>9,000,000원</strong>
+      </div>
+      <div class="reason">
+💡 <strong>핵심</strong><br>
+2과세기간 이상에 걸쳐 제공되는 용역을 선불로 수령한 경우<br>
+→ 각 예정신고기간·과세기간의 종료일을 공급시기로 하여 월할계산
+      </div>
+    </div>
+  </div>
+
+  <!-- 자료 3 답 -->
+  <div class="sub-item">
+    <div class="sub-header" onclick="toggle('c3','k3')">
+      <span class="sub-title">자료 3 — BOT 방식 용역 과세표준</span>
+      <span class="sub-score">10점</span>
+      <span class="toggle-icon" id="k3">▼</span>
+    </div>
+    <div class="sub-content" id="c3">
+      <span class="answer-label">✅ 2025년 제1기 과세표준: 70,000,000원</span>
+      <div class="formula">
+【BOT 방식 용역 과세표준 계산】<br>
+<br>
+① 시설 설치원가의 월할 안분액<br>
+   = 360,000,000원 × (6개월 / 36개월)<br>
+   = <strong>60,000,000원</strong><br>
+<br>
+② 현금 대가 (매 기수마다 수령)<br>
+   = <strong>10,000,000원</strong><br>
+<br>
+③ 2025년 제1기 과세표준 합계<br>
+   = 60,000,000 + 10,000,000<br>
+   = <strong>70,000,000원</strong>
+      </div>
+      <div class="reason">
+💡 <strong>BOT 방식 핵심</strong><br>
+· BOT 방식 준용 용역: 시설 설치원가를 용역 제공기간에 걸쳐 <strong>월할 배분</strong>하여 과세표준 인식<br>
+· 현금 대가는 해당 기수에 <strong>별도 가산</strong><br>
+· 공급시기: 각 예정신고기간·과세기간의 종료일 (2025년 1기 전체 = 6개월)
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <button class="btn-nav" onclick="location.href='q02.html'">← 이전</button>
+    <button class="btn-next" onclick="location.href='q04.html'">다음 문제 →</button>
+  </div>
+
+</div>
+<script>
+function toggle(contentId, iconId){
+  const c=document.getElementById(contentId);
+  const i=document.getElementById(iconId);
+  c.classList.toggle('open');
+  i.textContent=c.classList.contains('open')?'▲':'▼';
+}
+</script>
+</body></html>
