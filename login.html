@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부가가치세법 완전정복</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Malgun Gothic', sans-serif;
+      background: #f97316;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 44px 36px 36px;
+      max-width: 340px;
+      width: 100%;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    .lock-icon {
+      font-size: 56px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    h1 {
+      font-size: 20px;
+      color: #1a1a1a;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .sub {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 28px;
+    }
+
+    .pw-display {
+      width: 100%;
+      padding: 16px 20px;
+      border: 2px solid #fed7aa;
+      border-radius: 12px;
+      font-size: 28px;
+      text-align: center;
+      letter-spacing: 14px;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .2s, box-shadow .2s;
+      background: #fff;
+      user-select: none;
+    }
+
+    .pw-display.active {
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
+    }
+
+    .pw-display.error {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239,68,68,0.15);
+      animation: shake 0.4s ease;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #d1d5db;
+      margin: 0 5px;
+      display: inline-block;
+      transition: background .2s, transform .2s;
+    }
+
+    .dot.filled {
+      background: #f97316;
+      transform: scale(1.2);
+    }
+
+    .error-msg {
+      font-size: 13px;
+      color: #ef4444;
+      margin-bottom: 12px;
+      min-height: 18px;
+      visibility: hidden;
+    }
+    .error-msg.show { visibility: visible; }
+
+    .btn-enter {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: 'Malgun Gothic', sans-serif;
+      transition: transform .15s, box-shadow .15s;
+      box-shadow: 0 4px 14px rgba(249,115,22,0.4);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-enter:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(249,115,22,0.5);
+    }
+
+    .btn-enter:active { transform: scale(0.97); }
+
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .key {
+      padding: 16px;
+      background: #fff7ed;
+      border: 1.5px solid #fed7aa;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #374151;
+      cursor: pointer;
+      transition: background .1s, transform .1s;
+      font-family: 'Malgun Gothic', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    .key:hover  { background: #ffedd5; }
+    .key:active { transform: scale(0.91); background: #fed7aa; }
+
+    .key.del {
+      background: #fef2f2;
+      border-color: #fecaca;
+      color: #ef4444;
+      font-size: 22px;
+    }
+    .key.del:hover  { background: #fee2e2; }
+    .key.del:active { background: #fecaca; }
+
+    .key.empty {
+      background: transparent;
+      border: none;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .success-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      z-index: 999;
+    }
+    .success-overlay.show { display: flex; }
+
+    .check-icon {
+      font-size: 72px;
+      margin-bottom: 16px;
+      animation: popIn 0.4s ease;
+    }
+
+    .success-text {
+      font-size: 22px;
+      font-weight: bold;
+      animation: popIn 0.4s ease 0.1s both;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.5); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20%     { transform: translateX(-8px); }
+      40%     { transform: translateX(8px); }
+      60%     { transform: translateX(-5px); }
+      80%     { transform: translateX(5px); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+  <span class="lock-icon">🔐</span>
+  <h1>부가가치세법 완전정복</h1>
+  <p class="sub">비밀번호를 입력하세요</p>
+
+  <div class="pw-display" id="pwDisplay">
+    <span class="dot" id="d0"></span>
+    <span class="dot" id="d1"></span>
+    <span class="dot" id="d2"></span>
+    <span class="dot" id="d3"></span>
+  </div>
+
+  <div class="error-msg" id="errorMsg">🔒 비밀번호가 틀렸습니다.</div>
+
+  <button class="btn-enter" ontouchstart="" onclick="tryLogin()">🔓 입장하기</button>
+
+  <div class="keypad">
+    <button class="key" ontouchstart="" onclick="pressKey('1')">1</button>
+    <button class="key" ontouchstart="" onclick="pressKey('2')">2</button>
+    <button class="key" ontouchstart="" onclick="pressKey('3')">3</button>
+    <button class="key" ontouchstart="" onclick="pressKey('4')">4</button>
+    <button class="key" ontouchstart="" onclick="pressKey('5')">5</button>
+    <button class="key" ontouchstart="" onclick="pressKey('6')">6</button>
+    <button class="key" ontouchstart="" onclick="pressKey('7')">7</button>
+    <button class="key" ontouchstart="" onclick="pressKey('8')">8</button>
+    <button class="key" ontouchstart="" onclick="pressKey('9')">9</button>
+    <button class="key empty"></button>
+    <button class="key" ontouchstart="" onclick="pressKey('0')">0</button>
+    <button class="key del" ontouchstart="" onclick="deleteLast()">⌫</button>
+  </div>
+</div>
+
+<div class="success-overlay" id="successOverlay">
+  <div class="check-icon">✅</div>
+  <p class="success-text">입장합니다!</p>
+</div>
+
+<script>
+  // ✅ 비밀번호 여기서 변경 (4자리 숫자)
+  const PASSWORD = '1234';
+
+  let inputVal = '';
+  let isProcessing = false;
+
+  function updateDots() {
+    for (let i = 0; i < 4; i++) {
+      const dot = document.getElementById('d' + i);
+      if (i < inputVal.length) {
+        dot.classList.add('filled');
+      } else {
+        dot.classList.remove('filled');
+      }
+    }
+    const display = document.getElementById('pwDisplay');
+    if (inputVal.length > 0) {
+      display.classList.add('active');
+    } else {
+      display.classList.remove('active');
+    }
+  }
+
+  function pressKey(num) {
+    if (isProcessing) return;
+    if (inputVal.length >= 4) return;
+    inputVal += num;
+    clearError();
+    updateDots();
+    if (inputVal.length === 4) {
+      isProcessing = true;
+      setTimeout(() => {
+        tryLogin();
+        isProcessing = false;
+      }, 200);
+    }
+  }
+
+  function deleteLast() {
+    if (isProcessing) return;
+    inputVal = inputVal.slice(0, -1);
+    clearError();
+    updateDots();
+  }
+
+  function tryLogin() {
+    if (inputVal.length === 0) {
+      showError('비밀번호를 입력하세요.');
+      return;
+    }
+    if (inputVal === PASSWORD) {
+      sessionStorage.setItem('loggedIn', 'true');
+      document.getElementById('successOverlay').classList.add('show');
+      setTimeout(() => { location.href = 'index.html'; }, 1200);
+    } else {
+      const display = document.getElementById('pwDisplay');
+      display.classList.add('error');
+      showError('🔒 비밀번호가 틀렸습니다.');
+      setTimeout(() => {
+        display.classList.remove('error');
+        inputVal = '';
+        updateDots();
+      }, 600);
+    }
+  }
+
+  function showError(msg) {
+    const err = document.getElementById('errorMsg');
+    err.textContent = msg;
+    err.classList.add('show');
+  }
+
+  function clearError() {
+    document.getElementById('errorMsg').classList.remove('show');
+  }
+
+  // PC 키보드 입력 지원
+  document.addEventListener('keydown', function(e) {
+    if (e.key >= '0' && e.key <= '9') pressKey(e.key);
+    if (e.key === 'Backspace') deleteLast();
+    if (e.key === 'Enter') tryLogin();
+  });
+
+  // 이미 로그인 상태면 바로 통과
+  if (sessionStorage.getItem('loggedIn') === 'true') {
+    location.href = 'index.html';
+  }
+</script>
+
+</body>
+</html>
