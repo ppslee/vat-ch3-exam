@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>객관식 1번</title><link rel="stylesheet" href="mcq.css"></head>
+<body><div class="container">
+  <div class="header">
+    <a href="../index.html" class="home-btn">🏠</a>
+    <span class="badge">객관식 1 / 10</span>
+    <span class="level">⚡ 상중</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" style="width:10%"></div></div>
+  <h2>【문 1】 재화·용역의 공급 / 공급으로 보지 않는 거래</h2>
+  <p class="question">부가가치세법상 재화 및 용역의 공급 및 공급으로 보지 아니하는 거래에 대한 설명으로 가장 <strong>옳지 않은 것</strong>은?</p>
+  <div class="choices">
+    <label class="choice"><input type="radio" name="q" value="1"><span>① 질권·저당권·양도담보 목적의 자산 제공은 재화의 공급으로 보지 아니하나, 채무불이행으로 담보물이 채권자에게 변제 충당되는 경우에는 그 변제 충당된 때에 재화를 공급한 것으로 본다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="2"><span>② 사업의 포괄적 양도는 재화의 공급으로 보지 아니하며, 양수인이 새로운 사업을 추가하거나 사업의 종류를 변경한 경우에도 사업의 포괄적 양도로 인정된다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="3"><span>③ 포괄적 양도에 해당하더라도, 양수인이 대리납부한 경우에는 재화의 공급으로 보아 세금계산서를 발급할 수 있다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="4"><span>④ 건설자재 부담 여부와 관계없이 가공계약은 용역의 공급으로 본다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="5"><span>⑤ 조세 물납은 재화의 공급으로 보지 아니하나, 강제징수나 경매에 따른 재화 양도는 재화의 공급으로 보아 과세한다.</span></label>
+  </div>
+  <button class="btn-check" onclick="check()">✅ 정답 확인</button>
+  <div id="result" class="result"></div>
+  <div class="nav">
+    <button class="btn-nav" onclick="location.href='../index.html'">← 메인</button>
+    <button class="btn-next" onclick="location.href='q02.html'">다음 문제 →</button>
+  </div>
+</div>
+<script>
+const A=5, E=`<strong>정답: ⑤번</strong><br><br>
+⑤ [오답] 국세징수법에 따른 강제징수나 민사집행법에 따른 경매에 의한 재화 양도는 <u>재화의 공급으로 보지 않습니다</u> (부가가치세법 제10조 제7항). '과세한다'는 설명이 틀렸습니다.<br><br>
+① 변제 충당 시 공급 ○ → 옳음 &nbsp;② 사업 종류 변경해도 포괄적 양도 인정 → 옳음 &nbsp;③ 대리납부 시 세금계산서 발급 가능 → 옳음 &nbsp;④ 자재 부담 불문 용역의 공급 → 옳음`;
+function check(){const s=document.querySelector('input[name="q"]:checked');const d=document.getElementById('result');if(!s){alert('선택지를 선택하세요!');return;}d.style.display='block';d.className='result '+(+s.value===A?'correct':'wrong');d.innerHTML=(+s.value===A?'🎉 정답!<br><br>':'❌ 오답!<br><br>')+E;}
+</script></div></body></html>
