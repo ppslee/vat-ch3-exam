@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>객관식 4번</title><link rel="stylesheet" href="mcq.css"></head>
+<body><div class="container">
+  <div class="header">
+    <a href="../index.html" class="home-btn">🏠</a>
+    <span class="badge">객관식 4 / 10</span>
+    <span class="level">⚡⚡⚡ 최상</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
+  <h2>【문 4】 개인적 공급·사업상 증여 및 마일리지 특례</h2>
+  <p class="question">부가가치세법상 개인적 공급 및 사업상 증여에 관한 설명으로 가장 <strong>옳지 않은 것</strong>은?</p>
+  <div class="choices">
+    <label class="choice"><input type="radio" name="q" value="1"><span>① 개인적 공급의 경우 원칙적으로 시가를 과세표준으로 하나, 작업복·작업모·작업화 및 연간 10만 원 이하의 경조사 관련 재화 등은 공급으로 보지 아니한다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="2"><span>② 사업상 증여는 공급으로 의제되나, 견본품 무상 인도나 불특정 다수인에게 배포하는 광고선전물 등은 사업상 증여에서 제외한다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="3"><span>③ 기부금품법 적용 단체에 무상으로 기부하는 재화는 매입세액 공제 여부와 관계없이 과세하지 않는다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="4"><span>④ 자기생산·취득재화를 인도하고 대금을 자기적립마일리지로 결제받은 경우로서 제3자 보전액이 없는 때에는, 사업상 증여로 보아 시가를 과세표준으로 하여 과세한다.</span></label>
+    <label class="choice"><input type="radio" name="q" value="5"><span>⑤ 타인으로부터 구입한 재화(자기생산·취득재화 아님)를 자기적립마일리지로 결제받은 경우, 제3자 보전액이 없더라도 사업상 증여로 보아 공급의제를 적용할 수 없다.</span></label>
+  </div>
+  <button class="btn-check" onclick="check()">✅ 정답 확인</button>
+  <div id="result" class="result"></div>
+  <div class="nav">
+    <button class="btn-nav" onclick="location.href='q03.html'">← 이전</button>
+    <button class="btn-next" onclick="location.href='q05.html'">다음 문제 →</button>
+  </div>
+</div>
+<script>
+const A=4, E=`<strong>정답: ④번</strong><br><br>
+④ [오답] 자기생산·취득재화를 자기적립마일리지로 결제받고 제3자 보전액이 없는 경우, <u>사업상 증여로 보아 시가 과세하지 않습니다</u>. 해당 마일리지 결제액은 매출에누리로 보아 과세표준에 산입하지 않는 것이 원칙입니다. (단, '자기생산·취득재화 특례'는 별도 요건 하에 적용)<br><br>
+① ② ③ ⑤ 모두 옳은 설명입니다.`;
+function check(){const s=document.querySelector('input[name="q"]:checked');const d=document.getElementById('result');if(!s){alert('선택지를 선택하세요!');return;}d.style.display='block';d.className='result '+(+s.value===A?'correct':'wrong');d.innerHTML=(+s.value===A?'🎉 정답!<br><br>':'❌ 오답!<br><br>')+E;}
+</script></div></body></html>
